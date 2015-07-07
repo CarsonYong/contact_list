@@ -22,11 +22,15 @@ require_relative 'contact_database'
       puts "Enter in an email"
       email = STDIN.gets.chomp.downcase
       new_contact = Contact.new(name, email)
+      puts new_contact.name
+      puts new_contact.email
       Contact.create(new_contact.name, new_contact.email)
 
       
       #puts "#{@new_contact}"
     elsif @argv =="list"
+      ContactDatabase.read
+
     elsif @argv =="show"
     elsif @argv == "find"
     end

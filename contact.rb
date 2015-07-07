@@ -10,7 +10,7 @@ class Contact
  
   def to_s
     # TODO: return string representation of Contact
-    @name.to_s + "," + @email.to_s
+    @name.to_s + " " + ","+ " " + @email.to_s
   end
  
   ## Class Methods

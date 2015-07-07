@@ -5,7 +5,7 @@ require_relative 'contact_database'
 # TODO: Implement command line interaction
 # This should be the only file where you use puts and gets
 
-@argv = ARGV[0]
+@argv = ARGV[0] # change the var now to cmd
 
 
   if @argv == "help"
@@ -32,7 +32,16 @@ require_relative 'contact_database'
       ContactDatabase.read
 
     elsif @argv =="show"
+      #puts "start"
+      #puts ARGV
+      #puts "end"
+      #puts ARGV[0]
+      #puts ARGV[1]
+      #puts ARGV[1]
+      #puts "start"
+      ContactDatabase.show(ARGV[1].to_i)
     elsif @argv == "find"
+      ContactDatabase.find(ARGV[2])
     end
 
 

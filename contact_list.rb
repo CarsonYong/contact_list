@@ -41,7 +41,8 @@ require_relative 'contact_database'
       #puts "start"
       ContactDatabase.show(ARGV[1].to_i)
     elsif @argv == "find"
-      ContactDatabase.find(ARGV[2])
+      #puts ARGV[1]
+      ContactDatabase.find(ARGV[1].to_s)
     end
 
 

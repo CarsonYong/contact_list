@@ -37,10 +37,15 @@ class ContactDatabase
     end
   end
   def self.find(contact)
+    test = false
     CSV.foreach("contact.csv") do |row|
-      if row[1] == contact
-      puts row
+      if row[1].match(contact.to_s)
+        test = true
+        puts row
       end
+    end
+    if test == false
+      puts "cannot find contact"
     end
   end
 end

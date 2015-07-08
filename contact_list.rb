@@ -16,22 +16,22 @@ require_relative 'contact_database'
     puts "find - Find a contact"
   end
   #help_response = gets.chomp.downcase
-    if @argv == "new"
+  if @argv == "new"
+    puts "Enter in an email"
+    email = STDIN.gets.chomp.downcase
+    puts ContactDatabase.unique?(email)
+
+    if ContactDatabase.unique?(email) == true
       puts "Enter in a name"
-      name = STDIN.gets.chomp.downcase
-      puts "Enter in an email"
-      email = STDIN.gets.chomp.downcase
+      name = STDIN.gets.chomp.downcase  
       new_contact = Contact.new(name, email)
-      puts new_contact.name
-      puts new_contact.email
       Contact.create(new_contact.name, new_contact.email)
-
-      
+    end
       #puts "#{@new_contact}"
-    elsif @argv =="list"
-      ContactDatabase.read
+  elsif @argv =="list"
+    ContactDatabase.read
 
-    elsif @argv =="show"
+  elsif @argv =="show"
       #puts "start"
       #puts ARGV
       #puts "end"

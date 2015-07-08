@@ -8,6 +8,8 @@ class ContactDatabase
     id = CSV.read("contact.csv")
     id = id.length
     id += 1
+
+
     CSV.open("contact.csv", "ab") do |csv|
      #id = csv.length += 1
       csv << [id, contact.name, contact.email]
@@ -47,6 +49,19 @@ class ContactDatabase
     if test == false
       puts "cannot find contact"
     end
+  end
+
+  def self.unique?(email)
+    test = true
+    CSV.foreach("contact.csv") do |row|
+      if row[2].match(email.to_s)
+        test = false
+      end
+    end    
+    if test == false
+      puts "Contact already exists"
+    end
+    test
   end
 end
 
